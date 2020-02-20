@@ -1,7 +1,8 @@
 ﻿using System.Data.Entity;
 using System.Security.Claims;
 using System.Threading.Tasks;
-using DoroboShop.Entity;
+using ConsoleTEstFilters.Entity;
+
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 
@@ -25,9 +26,11 @@ namespace DoroboShop.Models
             : base("DefaultConnection", throwIfV1Schema: false)
         {
         }
-        public DbSet<Category_first> first { get; set; }
-        public DbSet<Category_main> dbCategories_main { get; set; }
-        public DbSet<Category_second> dbCategories_second { get; set; }
+        public DbSet<Category> dbCategories { get; set; }
+        public DbSet<FilterName> dbFilterName { get; set; }
+        public DbSet<FilterNameGroups> dbFilterNameGroups { get; set; }
+        public DbSet<FilterValue> dbFilterValue { get; set; }
+        public DbSet<Product> dbProduct { get; set; }
 
         public static ApplicationDbContext Create()
         {
