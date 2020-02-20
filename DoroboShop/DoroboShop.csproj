@@ -197,6 +197,9 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Entity\Category_first.cs" />
+    <Compile Include="Entity\Category_main.cs" />
+    <Compile Include="Entity\Category_second.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
