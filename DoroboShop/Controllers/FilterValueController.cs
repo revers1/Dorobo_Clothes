@@ -13,9 +13,9 @@ namespace DoroboShop.Controllers
         // GET: FilterValue
         private ApplicationDbContext _context;
 
-        public FilterValueController(ApplicationDbContext context)
+        public FilterValueController()
         {
-            _context = context;
+            _context = new ApplicationDbContext();
         }
 
 

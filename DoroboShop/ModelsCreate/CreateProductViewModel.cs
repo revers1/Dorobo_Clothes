@@ -11,6 +11,8 @@ namespace DoroboShop.ModelsCreate
         [Required]
         public string Name { get; set; }
         [Required]
+        public string Photo { get; set; }
+        [Required]
         public float? Price { get; set; }
 
         [Required]
@@ -38,6 +40,9 @@ namespace DoroboShop.ModelsCreate
 
         [Required]
         public DateTime DataCreate { get; set; }
+
+
+        public HttpPostedFileBase SomeFile { get; set; }
 
         [Required]
         public int CategoryId { get; set; }

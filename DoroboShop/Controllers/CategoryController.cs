@@ -13,9 +13,9 @@ namespace DoroboShop.Controllers
         // GET: Category
         private ApplicationDbContext _context;
 
-        public CategoryController(ApplicationDbContext context)
+        public CategoryController()
         {
-            _context = context;
+            _context = new ApplicationDbContext();
         }
 
 

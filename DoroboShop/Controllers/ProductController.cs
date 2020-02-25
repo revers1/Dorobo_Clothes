@@ -3,6 +3,8 @@ using DoroboShop.Models;
 using DoroboShop.ModelsCreate;
 using System;
 using System.Collections.Generic;
+using System.Drawing;
+using System.Drawing.Imaging;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -14,15 +16,16 @@ namespace DoroboShop.Controllers
         // GET: Product
         private ApplicationDbContext _context;
 
-        public ProductController(ApplicationDbContext context)
+        public ProductController( )
         {
-            _context = context;
+            _context = new ApplicationDbContext();
         }
         public ActionResult Index()
         {
             List<ProductViewModel> Products = _context.dbProduct.Select(e => new ProductViewModel
             {
                 Name = e.Name,
+                Photo=e.Photo,
                 Price=e.Price,
                 Size=e.Size,
                 Sale=e.Sale,
@@ -41,42 +44,7 @@ namespace DoroboShop.Controllers
         }
 
 
-        [HttpGet]
-        public ActionResult Create()
-        {
-            return View();
-        }
-
-
-        [HttpPost]
-        public ActionResult Create(ProductViewModel model)
-        {
-
-            if (ModelState.IsValid)
-            {
-                _context.dbProduct.Add(new Product
-                {
-                    Name = model.Name,
-                    Price = model.Price,
-                    Size = model.Size,
-                    Sale = model.Sale,
-                    Quantity = model.Quantity,
-                    Color = model.Color,
-                    Brand = model.Brand,
-                    Country = model.Country,
-                    Season = model.Season,
-                    Description = model.Description,
-                    DataCreate = model.DataCreate,
-                    CategoryId = model.CategoryId
-
-                });
-                _context.SaveChanges();
-
-                return RedirectToAction("Index", "Product");
-            }
-            else { return View(model); }
-
-        }
+        
 
         [HttpGet]
         public ActionResult Edit(int id)
@@ -87,6 +55,7 @@ namespace DoroboShop.Controllers
             {
                 Id = temp.Id,
                 Name = temp.Name,
+                Photo=temp.Photo,
                 Price = temp.Price,
                 Size = temp.Size,
                 Sale = temp.Sale,
@@ -113,6 +82,7 @@ namespace DoroboShop.Controllers
                var foundProduct = _context.dbProduct.First(t => t.Id == model.Id);
                     foundProduct.Id = model.Id;
                     foundProduct.Name = model.Name;
+                    foundProduct.Photo = model.Photo;
                     foundProduct.Price = model.Price;
                     foundProduct.Size = model.Size;
                     foundProduct.Sale = model.Sale;
@@ -145,6 +115,56 @@ namespace DoroboShop.Controllers
             return RedirectToAction("Index", "Product");
 
         }
+
+
+
+        [HttpGet]
+        public ActionResult Create()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult Create(CreateProductViewModel model, HttpPostedFileBase someFile)
+        {
+            // do something with someFile
+
+            string link = string.Empty;
+            string filename = Guid.NewGuid().ToString() + ".jpg";
+            string image = Server.MapPath(Constants.ProductImagePath) +
+                filename;
+            using (Bitmap bmp = new Bitmap(someFile.InputStream))
+            {
+                var saveImage = ImageWorker.CreateImage(bmp, 350, 350);
+                if (saveImage != null)
+                {
+                    saveImage.Save(image, ImageFormat.Jpeg);
+
+                    var pdImage = new Product
+                    {
+                        Name = model.Name,
+                        Price = model.Price,
+                        Photo = filename,
+                        Size = model.Size,
+                        Sale = model.Sale,
+                        Quantity = model.Quantity,
+                        Color = model.Color,
+                        Brand = model.Brand,
+                        Country = model.Country,
+                        Season = model.Season,
+                        Description = model.Description,
+                        DataCreate = DateTime.Now,
+                        CategoryId = model.CategoryId
+                    };
+                    _context.dbProduct.Add(pdImage);
+                    _context.SaveChanges();
+                    return RedirectToAction("Index", "Product");
+                }
+            }
+
+            return View(model);
+        }
+
 
     }
 }

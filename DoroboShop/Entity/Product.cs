@@ -5,6 +5,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Web;
 
 namespace ConsoleTEstFilters.Entity
 {
@@ -16,6 +17,10 @@ namespace ConsoleTEstFilters.Entity
        
         [Required,StringLength(maximumLength:50)]
         public string Name { get; set; }
+
+        [Required]
+        public string Photo { get; set; }
+
         [Required]
         public float ? Price { get; set; }
 
@@ -47,6 +52,8 @@ namespace ConsoleTEstFilters.Entity
 
         [Required, ForeignKey("Category")]
         public int CategoryId { get; set; }
+
+      
 
         public virtual Category Category { get; set; }
     }
