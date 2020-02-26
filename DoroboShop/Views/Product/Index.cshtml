@@ -47,6 +47,7 @@
         <th>
             @Html.DisplayNameFor(model => model.DataCreate)
         </th>
+  
         <th>
             @Html.DisplayNameFor(model => model.CategoryId)
         </th>
@@ -59,7 +60,7 @@
             @Html.DisplayFor(modelItem => item.Name)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Photo)
+            <img src="@item.FilePath" alt="Alternate Text" />
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.Price)
@@ -91,6 +92,9 @@
         <td>
             @Html.DisplayFor(modelItem => item.DataCreate)
         </td>
+        @*<td>
+            @Html.DisplayFor(modelItem => item.FilePath)
+        </td>*@
         <td>
             @Html.DisplayFor(modelItem => item.CategoryId)
         </td>

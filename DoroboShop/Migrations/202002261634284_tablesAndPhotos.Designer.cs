@@ -7,13 +7,13 @@ namespace DoroboShop.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.2.0-61023")]
-    public sealed partial class firstm : IMigrationMetadata
+    public sealed partial class tablesAndPhotos : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(firstm));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(tablesAndPhotos));
         
         string IMigrationMetadata.Id
         {
-            get { return "202002201824291_firstm"; }
+            get { return "202002261634284_tablesAndPhotos"; }
         }
         
         string IMigrationMetadata.Source

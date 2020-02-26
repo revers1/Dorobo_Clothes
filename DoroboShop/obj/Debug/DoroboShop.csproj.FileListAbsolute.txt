@@ -118,5 +118,5 @@ C:\Users\Админ\Desktop\DoroboShop\DoroboShop\obj\Debug\DoroboShop.csproj.Co
 C:\Users\Админ\Desktop\DoroboShop\DoroboShop\obj\Debug\DoroboShop.csproj.CopyComplete
 C:\Users\Админ\Desktop\DoroboShop\DoroboShop\obj\Debug\DoroboShop.dll
 C:\Users\Админ\Desktop\DoroboShop\DoroboShop\obj\Debug\DoroboShop.pdb
-C:\Users\Админ\Desktop\DoroboShop\DoroboShop\obj\Debug\DoroboShop.Migrations.firstm.resources
+C:\Users\Админ\Desktop\DoroboShop\DoroboShop\obj\Debug\DoroboShop.Migrations.tablesAndPhotos.resources
 C:\Users\Админ\Desktop\DoroboShop\DoroboShop\obj\Debug\DoroboShop.csproj.GenerateResource.cache

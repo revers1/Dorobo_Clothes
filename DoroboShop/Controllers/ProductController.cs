@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Drawing.Imaging;
+using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -22,25 +23,33 @@ namespace DoroboShop.Controllers
         }
         public ActionResult Index()
         {
-            List<ProductViewModel> Products = _context.dbProduct.Select(e => new ProductViewModel
+            var Products = _context.dbProduct.ToList();
+
+
+            List<ProductViewModel> list = new List<ProductViewModel>();
+
+            foreach (var item in Products)
             {
-                Name = e.Name,
-                Photo=e.Photo,
-                Price=e.Price,
-                Size=e.Size,
-                Sale=e.Sale,
-                Quantity=e.Quantity,
-                Color=e.Color,
-                Brand=e.Brand,
-                Country=e.Country,
-                Season=e.Season,
-                Description=e.Description,
-                DataCreate=e.DataCreate,
-                CategoryId=e.CategoryId
-
-            }).ToList();
-
-            return View(Products);
+                var filename = Url.Content(Constants.ProductImagePath) + item.Photo;
+                list.Add(new ProductViewModel {
+                    Id = item.Id,
+                    Name = item.Name,
+                    Photo = item.Photo,
+                    Price = item.Price,
+                    Size = item.Size,
+                    Sale = item.Sale,
+                    Quantity = item.Quantity,
+                    Color = item.Color,
+                    Brand = item.Brand,
+                    Country = item.Country,
+                    Season = item.Season,
+                    Description = item.Description,
+                    DataCreate = item.DataCreate,
+                    CategoryId = item.CategoryId,
+                    FilePath = filename
+                });
+            }
+            return View(list);
         }
 
 

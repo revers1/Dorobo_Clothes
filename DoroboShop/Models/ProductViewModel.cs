@@ -42,6 +42,8 @@ namespace DoroboShop.Models
         [Required]
         public DateTime DataCreate { get; set; }
 
+        public string FilePath { get; set; }
+
         public HttpPostedFileBase SomeFile { get; set; }
 
         [Required]

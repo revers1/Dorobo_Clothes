@@ -12,7 +12,7 @@ namespace DoroboShop.Models
         [Required]
         public string Name { get; set; }
 
-        [Required]
+        
         public int? ParentId { get; set; }
     }
 }
