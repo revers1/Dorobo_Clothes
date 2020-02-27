@@ -1,5 +1,6 @@
 ﻿using ConsoleTEstFilters.Entity;
 using DoroboShop.Models;
+using DoroboShop.ModelsCreate;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -34,7 +35,21 @@ namespace DoroboShop.Controllers
         [HttpGet]
         public ActionResult Create()
         {
-            return View();
+            List<Category> list = _context.dbCategories.ToList();
+            List<SelectListItem> selected = new List<SelectListItem>();
+            foreach (var item in list)
+            {
+                selected.Add(new SelectListItem()
+                {
+                    Value = item.Id.ToString(),
+                    Text=item.Name
+             
+                });
+            }
+            CreateCategoryViewModel cat = new CreateCategoryViewModel();
+            cat.Categories = selected;
+
+            return View(cat);
         }
 
 
@@ -56,7 +71,7 @@ namespace DoroboShop.Controllers
             else { return View(model); }
 
         }
-
+        [HttpPost]
         public ActionResult Delete(int id)
         {
 

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
+using System.Web.Mvc;
 
 namespace DoroboShop.ModelsCreate
 {
@@ -11,7 +12,9 @@ namespace DoroboShop.ModelsCreate
         [Required]
         public string Name { get; set; }
 
-   
-        public int? ParentId { get; set; }
+        public int ParentId { get; set; }
+
+        public List<SelectListItem> Categories { get; set; }
+
     }
 }

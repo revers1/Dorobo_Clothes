@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
+using System.Web.Mvc;
 
 namespace DoroboShop.Models
 {
@@ -14,5 +15,6 @@ namespace DoroboShop.Models
 
         
         public int? ParentId { get; set; }
+     
     }
 }
