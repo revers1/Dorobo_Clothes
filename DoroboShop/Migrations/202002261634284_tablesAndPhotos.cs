@@ -1,9 +1,10 @@
+
 namespace DoroboShop.Migrations
 {
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class firstm : DbMigration
+    public partial class tablesAndPhotos : DbMigration
     {
         public override void Up()
         {
@@ -29,20 +30,15 @@ namespace DoroboShop.Migrations
                 .PrimaryKey(t => t.Id);
             
             CreateTable(
-                "dbo.tblFilterNameGroups",
+                "dbo.FilterNameGroupsViewModels",
                 c => new
                     {
+                        Id = c.Int(nullable: false, identity: true),
                         FilterNameId = c.Int(nullable: false),
                         FilterValueId = c.Int(nullable: false),
                         CategoryId = c.Int(nullable: false),
                     })
-                .PrimaryKey(t => new { t.FilterNameId, t.FilterValueId, t.CategoryId })
-                .ForeignKey("dbo.tblCategories", t => t.CategoryId, cascadeDelete: true)
-                .ForeignKey("dbo.tblFilterNames", t => t.FilterNameId, cascadeDelete: true)
-                .ForeignKey("dbo.tblFilterValues", t => t.FilterValueId, cascadeDelete: true)
-                .Index(t => t.FilterNameId)
-                .Index(t => t.FilterValueId)
-                .Index(t => t.CategoryId);
+                .PrimaryKey(t => t.Id);
             
             CreateTable(
                 "dbo.tblFilterValues",
@@ -59,6 +55,7 @@ namespace DoroboShop.Migrations
                     {
                         Id = c.Int(nullable: false, identity: true),
                         Name = c.String(nullable: false, maxLength: 50),
+                        Photo = c.String(nullable: false),
                         Price = c.Single(nullable: false),
                         Size = c.Single(nullable: false),
                         Sale = c.Int(nullable: false),
@@ -152,9 +149,6 @@ namespace DoroboShop.Migrations
             DropForeignKey("dbo.AspNetUserClaims", "UserId", "dbo.AspNetUsers");
             DropForeignKey("dbo.AspNetUserRoles", "RoleId", "dbo.AspNetRoles");
             DropForeignKey("dbo.tblProducts", "CategoryId", "dbo.tblCategories");
-            DropForeignKey("dbo.tblFilterNameGroups", "FilterValueId", "dbo.tblFilterValues");
-            DropForeignKey("dbo.tblFilterNameGroups", "FilterNameId", "dbo.tblFilterNames");
-            DropForeignKey("dbo.tblFilterNameGroups", "CategoryId", "dbo.tblCategories");
             DropForeignKey("dbo.tblCategories", "ParentId", "dbo.tblCategories");
             DropIndex("dbo.AspNetUserLogins", new[] { "UserId" });
             DropIndex("dbo.AspNetUserClaims", new[] { "UserId" });
@@ -163,9 +157,6 @@ namespace DoroboShop.Migrations
             DropIndex("dbo.AspNetUserRoles", new[] { "UserId" });
             DropIndex("dbo.AspNetRoles", "RoleNameIndex");
             DropIndex("dbo.tblProducts", new[] { "CategoryId" });
-            DropIndex("dbo.tblFilterNameGroups", new[] { "CategoryId" });
-            DropIndex("dbo.tblFilterNameGroups", new[] { "FilterValueId" });
-            DropIndex("dbo.tblFilterNameGroups", new[] { "FilterNameId" });
             DropIndex("dbo.tblCategories", new[] { "ParentId" });
             DropTable("dbo.AspNetUserLogins");
             DropTable("dbo.AspNetUserClaims");
@@ -174,7 +165,7 @@ namespace DoroboShop.Migrations
             DropTable("dbo.AspNetRoles");
             DropTable("dbo.tblProducts");
             DropTable("dbo.tblFilterValues");
-            DropTable("dbo.tblFilterNameGroups");
+            DropTable("dbo.FilterNameGroupsViewModels");
             DropTable("dbo.tblFilterNames");
             DropTable("dbo.tblCategories");
         }
