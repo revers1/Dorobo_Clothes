@@ -215,6 +215,10 @@
     <Compile Include="Migrations\202002261634284_tablesAndPhotos.Designer.cs">
       <DependentUpon>202002261634284_tablesAndPhotos.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202003021838208_full.cs" />
+    <Compile Include="Migrations\202003021838208_full.Designer.cs">
+      <DependentUpon>202003021838208_full.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="ModelsCreate\CreateCategoryViewModel.cs" />
     <Compile Include="ModelsCreate\CreateFilterGroupsViewModel.cs" />
@@ -295,12 +299,12 @@
     <Content Include="Views\FilterName\Create.cshtml" />
     <Content Include="Views\FilterName\Index.cshtml" />
     <Content Include="Views\FilterValue\Index.cshtml" />
-    <Content Include="Views\FilterValue\Create.cshtml" />
     <Content Include="Views\Category\Index.cshtml" />
     <Content Include="Views\Product\Edit.cshtml" />
     <Content Include="Views\Product\Create.cshtml" />
     <Content Include="Views\Product\Index.cshtml" />
     <Content Include="Views\Category\Create.cshtml" />
+    <Content Include="Views\FilterValue\Create.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -326,6 +330,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\202002261634284_tablesAndPhotos.resx">
       <DependentUpon>202002261634284_tablesAndPhotos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202003021838208_full.resx">
+      <DependentUpon>202003021838208_full.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

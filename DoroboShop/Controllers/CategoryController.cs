@@ -71,7 +71,7 @@ namespace DoroboShop.Controllers
             else { return View(model); }
 
         }
-        [HttpPost]
+        
         public ActionResult Delete(int id)
         {
 

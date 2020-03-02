@@ -120,3 +120,4 @@ C:\Users\Админ\Desktop\DoroboShop\DoroboShop\obj\Debug\DoroboShop.dll
 C:\Users\Админ\Desktop\DoroboShop\DoroboShop\obj\Debug\DoroboShop.pdb
 C:\Users\Админ\Desktop\DoroboShop\DoroboShop\obj\Debug\DoroboShop.Migrations.tablesAndPhotos.resources
 C:\Users\Админ\Desktop\DoroboShop\DoroboShop\obj\Debug\DoroboShop.csproj.GenerateResource.cache
+C:\Users\Админ\Desktop\DoroboShop\DoroboShop\obj\Debug\DoroboShop.Migrations.full.resources
