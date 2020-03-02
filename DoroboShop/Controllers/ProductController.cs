@@ -113,7 +113,7 @@ namespace DoroboShop.Controllers
         }
 
 
-        [HttpPost]
+       
         public ActionResult Delete(int id)
         {
 
