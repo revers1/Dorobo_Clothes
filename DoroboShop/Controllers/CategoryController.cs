@@ -20,6 +20,23 @@ namespace DoroboShop.Controllers
         }
 
 
+    
+        public ActionResult GetProductsByCategory(int id)
+        {
+            List<ProductViewModel> list = _context.dbProduct.Where(t => t.CategoryId == id).Select(t => new ProductViewModel
+            {
+                Brand = t.Brand,
+                CategoryId = t.CategoryId,
+                Name = t.Name,
+                Price = t.Price,
+                Photo = t.Photo,
+                Id = t.Id
+            }).ToList();
+
+            return View(list);
+        }
+
+
         public ActionResult Index()
         {
             List<CategoryViewModelcs> Categories = _context.dbCategories.Select(e => new CategoryViewModelcs

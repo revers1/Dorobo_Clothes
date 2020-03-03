@@ -24,7 +24,6 @@ namespace DoroboShop.Models
         [Required]
         public int? Quantity { get; set; }
 
-
         [Required]
         public string Color { get; set; }
 

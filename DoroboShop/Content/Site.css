@@ -1,6 +1,7 @@
 ﻿body {
     padding-top: 50px;
     padding-bottom: 20px;
+    background-color: black!important;
 }
 
 /* Set padding to keep content from hitting the edges */
@@ -37,7 +38,8 @@ textarea {
 }
 
 .form-control {
-    width: 20000px !important;
+    width: 200px !important;
+    color: #5d16a2 !important;
 }
 
 .fa {
