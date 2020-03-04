@@ -230,6 +230,7 @@
     <Compile Include="Models\FilterNameGroupsViewModel.cs" />
     <Compile Include="Models\FilterNameViewModel.cs" />
     <Compile Include="Models\FilterValueViewModel.cs" />
+    <Compile Include="Models\GroupViewModel.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\ProductViewModel.cs" />
@@ -303,10 +304,14 @@
     <Content Include="Views\FilterValue\Index.cshtml" />
     <Content Include="Views\FilterValue\Create.cshtml" />
     <Content Include="Views\Category\Index.cshtml" />
-    <Content Include="Views\Category\Create.cshtml" />
     <Content Include="Views\Product\Edit.cshtml" />
     <Content Include="Views\Product\Create.cshtml" />
     <Content Include="Views\Product\Index.cshtml" />
+    <Content Include="Views\Category\Create.cshtml" />
+    <Content Include="Views\Shared\_SearchProduct.cshtml" />
+    <Content Include="Views\Shared\_CategoriesView.cshtml" />
+    <Content Include="Views\Category\GetProductsByCategory.cshtml" />
+    <Content Include="Views\Shared\_ProductsView.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
