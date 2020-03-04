@@ -28,7 +28,7 @@ namespace DoroboShop.Models
         }
         public DbSet<Category> dbCategories { get; set; }
         public DbSet<FilterName> dbFilterName { get; set; }
-        public DbSet<FilterNameGroups> dbFilterNameGroups { get; set; }
+        public DbSet<FilterNameGroupsViewModel> dbFilterNameGroups { get; set; }
         public DbSet<FilterValue> dbFilterValue { get; set; }
         public DbSet<Product> dbProduct { get; set; }
 

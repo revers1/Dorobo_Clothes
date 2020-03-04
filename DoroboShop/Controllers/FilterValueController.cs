@@ -32,64 +32,19 @@ namespace DoroboShop.Controllers
         [HttpGet]
         public ActionResult Create()
         {
-
-            List<Category> list = _context.dbCategories.ToList();
-            List<FilterName> listname = _context.dbFilterName.ToList();
-
-            List<SelectListItem> selectedesCategori = new List<SelectListItem>();
-
-            List<SelectListItem> selectedFname = new List<SelectListItem>();
-            foreach (var item in listname)
-            {
-                selectedFname.Add(new SelectListItem()
-                {
-                    Value = item.Id.ToString(),
-                    Text = item.Name
-                });
-            }
-            foreach (var item in list)
-            {
-              
-                selectedesCategori.Add(new SelectListItem()
-                {
-                    Value = item.Id.ToString(),
-                    Text = item.Name
-
-                });
-            }
-
-            FilterValueViewModel model = new FilterValueViewModel();
-            model.Categories = selectedesCategori;
-            model.FiltersNames = selectedFname;
-
-            return View(model);
-       
+            return View();
         }
 
 
         [HttpPost]
-        public ActionResult Create(FilterValueViewModel model)
+        public ActionResult Create(FilterNameViewModel model)
         {
 
             if (ModelState.IsValid)
             {
-                //_context.dbFilterValue.Add(new FilterValue
-                //{
-                //    Name = model.Name
-                //});
-
-                FilterValue categoryValue = new FilterValue()
+                _context.dbFilterValue.Add(new FilterValue
                 {
                     Name = model.Name
-                };
-                _context.dbFilterValue.Add(categoryValue);
-                _context.SaveChanges();
-
-                _context.dbFilterNameGroups.Add(new FilterNameGroups
-                {
-                      FilterNameId = model.Id,
-                      FilterValueId= categoryValue.Id,
-                      CategoryId = model.CategoryId
                 });
                 _context.SaveChanges();
 
@@ -98,7 +53,7 @@ namespace DoroboShop.Controllers
             else { return View(model); }
 
         }
-        [HttpPost]
+
         public ActionResult Delete(int id)
         {
 
