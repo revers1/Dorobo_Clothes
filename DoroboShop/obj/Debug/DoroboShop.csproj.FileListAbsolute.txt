@@ -364,3 +364,4 @@ C:\Users\user\Desktop\Dorobo_Clothes\DoroboShop\obj\Debug\DoroboShop.csproj.Core
 C:\Users\user\Desktop\Dorobo_Clothes\DoroboShop\obj\Debug\DoroboShop.csproj.CopyComplete
 C:\Users\user\Desktop\Dorobo_Clothes\DoroboShop\obj\Debug\DoroboShop.dll
 C:\Users\user\Desktop\Dorobo_Clothes\DoroboShop\obj\Debug\DoroboShop.pdb
+C:\Users\user\Desktop\Dorobo_Clothes\DoroboShop\obj\Debug\DoroboShop.Migrations.asd.resources
