@@ -13,18 +13,20 @@
             <div class="sign-in-htm">
 
                 @using (Html.BeginForm("Login", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
-                {
+                 {
                     @Html.AntiForgeryToken()
 
-                    <div class="group">
-                        <label for="user" class="label">Email</label>
-                        @Html.TextBoxFor(m => m.Email, new { @class = "input" })
-                    </div>
+                <div class="group">
+                    <label for="user" class="label">Email</label>
+                    @Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger" })
+                    @Html.TextBoxFor(m => m.Email, new { @class = "input" })
+                </div>
 
-                    <div class="group">
-                        <label for="pass" class="label">Password</label>
-                        @Html.PasswordFor(m => m.Password, new { @class = "form-control" })
-                    </div>
+                <div class="group">
+                    <label for="pass" class="label">Password</label>
+                    @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })
+                    @Html.PasswordFor(m => m.Password, new { @class = "form-control" })
+                </div>
 
 
                     <div class="group">
@@ -38,7 +40,7 @@
                     <div class="foot-lnk">
                         <a href="@Html.ActionLink("Forgot password?","Register")">Forgot Password?</a>
                     </div>
-                }
+                 }
 
             </div>
 
